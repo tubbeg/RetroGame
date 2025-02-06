@@ -13,3 +13,13 @@ let createConf (s : Scene) (w : int)  (h : int) : obj = jsNative
 type Game(conf : obj) =
     class
     end
+
+
+[<Import("loadImage","./sceneExtension.js")>]
+let loadImage this id path = jsNative
+
+[<Import("addImage","./sceneExtension.js")>]
+let addImage this x y id = jsNative
+
+[<Import("setGOScale","./sceneExtension.js")>]
+let setGOScale this scale = jsNative
