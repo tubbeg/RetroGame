@@ -1,5 +1,6 @@
 ﻿open Browser
 open Fable.Core
+open Scene
 
 (*
 
@@ -14,22 +15,7 @@ Self-imposed limitations:
 - Platformer
 
 *)
-[<Import("SceneXt","./sceneExtension.js")>]
-type Scene (conf, pl : Scene -> unit, cr : Scene -> unit, upd : Scene -> float -> float -> unit) =
-    class
-    end
 
-[<Import("createConfig","./sceneExtension.js")>]
-let createConf (s : Scene) (w : int)  (h : int) : obj = jsNative
-
-[<Import("Game", "phaser")>]
-type Game(conf : obj) =
-    class
-    end
-
-let div = document.createElement "div"
-div.innerHTML <- "Stuff here!"
-document.body.appendChild div |> ignore
 
 let createGame () =
     let pl t = ()
