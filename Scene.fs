@@ -23,3 +23,15 @@ let addImage this x y id = jsNative
 
 [<Import("setGOScale","./sceneExtension.js")>]
 let setGOScale this scale = jsNative
+
+[<Import("makeTileMap","./sceneExtension.js")>]
+let makeTileMap this conf = jsNative
+
+[<Import("addTileSetImage","./sceneExtension.js")>]
+let addTileSetImage tilemap id = jsNative
+
+[<Import("tilemapCreateLayer","./sceneExtension.js")>]
+let tilemapCreateLayer tilemap i  tiles x y = jsNative
+
+[<Import("myLevel","./sceneExtension.js")>]
+let myLevel : array<int> = jsNative

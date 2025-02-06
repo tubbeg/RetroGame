@@ -1,5 +1,16 @@
 import {AUTO, Scene} from "phaser";
 
+export const myLevel = [
+    [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 ],
+    [  0,   1,   1,   3,   0,   0,   0,   1,   1,   1,   0 ],
+    [  0,   1,   1,   2,   0,   0,   0,   1,   1,   1,   0 ],
+    [  0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 ],
+    [  0,   0,   0,  1,  1,  1,   0,   0,   1,   0,   0 ],
+    [  0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 ],
+    [  0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 ],
+  ];
+  
+
 //js is much better suited at working with npm
 //libraries. And F#-JS interop means that I don't
 //have to write a ton of bindings. Sometimes F#
@@ -16,6 +27,19 @@ export function addImage(scene, x,y, id){
 export function setGOScale(gameObject, scale){
     gameObject.setScale(scale);
 }
+
+export function makeTileMap (scene,conf){
+    return scene.make.tilemap(conf);
+}
+
+export function addTileSetImage (tilemap,id){
+    return tilemap.addTilesetImage(id);
+}
+
+export function tilemapCreateLayer (tilemap,i,tiles,x,y){
+    return tilemap.createLayer(i, tiles,x,y);
+}
+
 
 export function createConfig (scenes,w,h){
     const config = {

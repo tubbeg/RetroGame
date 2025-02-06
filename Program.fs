@@ -12,18 +12,22 @@ Inspired by old-school retro games. Attempting my own retro-looking game.
 - Keep it tiny, keep it simple
 - Start without entity component system (for now)
 - Platformer
-
-
 *)
 
 
 let loadGame this =
     loadImage this "sky" "sky.png"
+    loadImage this "bricks" "bricksinsky.png"
     ()
+
 
 let createGame this =
     let img = addImage this 400 400 "sky"
     setGOScale img 3
+    //this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16 });
+    let tilemap = {|data=myLevel; tileWidth=16;tileHeight=16|} |> makeTileMap this
+    let tiles = addTileSetImage tilemap "bricks"
+    let layer = tilemapCreateLayer tilemap 0 tiles 300 300
     ()
 
 let launchGame () =
