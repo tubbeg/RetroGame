@@ -1,0 +1,6 @@
+.config/
+bin/
+fable_modules/
+node_modules/
+obj/
+*.fs.js
