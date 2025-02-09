@@ -35,3 +35,12 @@ let tilemapCreateLayer tilemap i  tiles x y = jsNative
 
 [<Import("myLevel","./sceneExtension.js")>]
 let myLevel : array<int> = jsNative
+
+[<Import("scaleLayer","./sceneExtension.js")>]
+let scaleLayer tilemap scale = jsNative
+
+[<Import("addSprite","./sceneExtension.js")>]
+let addSprite scene x y id = jsNative
+
+[<Import("loadTileMapCsv","./sceneExtension.js")>]
+let loadTileMapCsv scene  id path = jsNative

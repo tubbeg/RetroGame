@@ -4,3 +4,5 @@ fable_modules/
 node_modules/
 obj/
 *.fs.js
+.fake
+*.mp3

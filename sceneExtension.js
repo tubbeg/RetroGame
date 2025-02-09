@@ -1,13 +1,15 @@
 import {AUTO, Scene} from "phaser";
+import jsonData from './brickssky3.json';
+
+export const myLevel2 = jsonData.layers[0].data;
 
 export const myLevel = [
     [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 ],
     [  0,   1,   1,   3,   0,   0,   0,   1,   1,   1,   0 ],
-    [  0,   1,   1,   2,   0,   0,   0,   1,   1,   1,   0 ],
+    [  0,   0,   0,   0,   0,   0,   0,   1,   1,   1,   0 ],
     [  0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 ],
-    [  0,   0,   0,  1,  1,  1,   0,   0,   1,   0,   0 ],
-    [  0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 ],
-    [  0,   0,   0,   0,   0,   0,   0,   0,   1,   0,   0 ],
+    [  0,   0,   0,  0,  1,  1,   0,   0,   1,   0,   0 ],
+    [  4,   4,   4,   4,   4,   4,   4,   4,   4,   4,   4 ],
   ];
   
 
@@ -38,6 +40,18 @@ export function addTileSetImage (tilemap,id){
 
 export function tilemapCreateLayer (tilemap,i,tiles,x,y){
     return tilemap.createLayer(i, tiles,x,y);
+}
+
+export function scaleLayer (tilemap, newScale){
+    tilemap.layers.forEach((lyr) => {lyr.tilemapLayer.scale = newScale});
+}
+
+export function addSprite (scene, x, y, id){
+    return scene.add.sprite(x,y,id);
+}
+
+export function loadTileMapCsv(scene,id, path){
+    scene.load.tilemapCSV(id,path);
 }
 
 
