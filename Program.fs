@@ -15,25 +15,20 @@ Inspired by old-school retro games. Attempting my own retro-looking game.
 *)
 
 
-let loadGame this =
-    loadImage this "sky" "moonsky.png"
-    loadImage this "bricks" "bricksinsky2.png"
-    loadImage this "cloud" "darkclouds.png"
-    loadImage this "tower" "darktower.png"
-    loadTileMapCsv this "mymap" "brickssky.csv"
+let loadGame scene =
+    loadImage scene "player" "player.png"
+    loadImage scene "sky" "moonsky.png"
+    loadImage scene "bricks" "bricksinsky2.png"
+    loadImage scene "cloud" "darkclouds.png"
+    loadImage scene "tower" "darktower.png"
+    loadTileMapCsv scene "mymap" "brickssky.csv"
     ()
 
 let levelLocation = 0,0
 
-let createGame this =
-    let img = addImage this 400 400 "sky"
-    setGOScale img 3
-    let cloud = addSprite this 400 200 "cloud"
-    let tower = addSprite this 400 400 "tower"
-    setGOScale cloud 2
-    setGOScale  tower 3
+let addTiles scene =
     //this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16 });
-    let tilemap = {|key="mymap"; tileWidth=16;tileHeight=16|} |> makeTileMap this
+    let tilemap = {|key="mymap"; tileWidth=16;tileHeight=16|} |> makeTileMap scene
     let tiles = addTileSetImage tilemap "bricks"
     let x,y = levelLocation
     //you can add multiple tileset by by passing them as an array when you create the layer
@@ -42,6 +37,24 @@ let createGame this =
     //is
     let layer = tilemapCreateLayer tilemap 0 tiles x y
     scaleLayer tilemap 2
+    
+    //collision is not working. Not sure what the problem is
+
+    //setCollideExclude layer [||]
+    
+    layer
+
+
+let createGame scene =
+    let img = addImage scene 400 400 "sky"
+    setGOScale img 3
+    let cloud = addSprite scene 400 200 "cloud"
+    let tower = addSprite scene 400 400 "tower"
+    setGOScale cloud 2
+    setGOScale  tower 3
+    let l = addTiles scene
+    let ps = addPhysicsSprite scene 400 100 "player"
+    addCollider scene l ps
     ()
 
 let launchGame () =
@@ -52,3 +65,12 @@ let launchGame () =
     new Game(conf)
 
 launchGame () |> ignore
+
+
+
+
+
+
+
+
+

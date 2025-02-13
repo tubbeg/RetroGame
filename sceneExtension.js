@@ -1,7 +1,5 @@
 import {AUTO, Scene} from "phaser";
-import jsonData from './brickssky3.json';
 
-export const myLevel2 = jsonData.layers[0].data;
 
 export const myLevel = [
     [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 ],
@@ -51,7 +49,27 @@ export function addSprite (scene, x, y, id){
 }
 
 export function loadTileMapCsv(scene,id, path){
-    scene.load.tilemapCSV(id,path);
+    return scene.load.tilemapCSV(id,path);
+}
+
+export function addPhysicsSprite (scene, x,y,id){
+    return scene.physics.add.sprite(x,y,id);
+}
+
+export function setCollideExclude(layer, arr){
+    layer.setCollisionByExclusion(arr,true);
+}
+
+export function addCollider (scene, gameObject1, gameObject2){
+    return scene.physics.add.collider(gameObject1, gameObject2);
+}
+
+export function layerSetColl(layer){
+    layer.setCollisionBetween(1, 16, true, false, layer); 
+}
+
+export function tmSetColl (tilemap, arr){
+    tilemap.setCollision(arr);
 }
 
 

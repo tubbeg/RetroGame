@@ -44,3 +44,17 @@ let addSprite scene x y id = jsNative
 
 [<Import("loadTileMapCsv","./sceneExtension.js")>]
 let loadTileMapCsv scene  id path = jsNative
+
+[<Import("addPhysicsSprite","./sceneExtension.js")>]
+let addPhysicsSprite scene x y  id  = jsNative
+
+[<Import("setCollideExclude","./sceneExtension.js")>]
+let setCollideExclude layer excludeArray  = jsNative
+[<Import("addCollider","./sceneExtension.js")>]
+let addCollider scene go1 go2  = jsNative
+
+[<Import("layerSetColl","./sceneExtension.js")>]
+let layerSetColl layer  = jsNative
+
+[<Import("tmSetColl","./sceneExtension.js")>]
+let tmSetColl tilemap arr  = jsNative
